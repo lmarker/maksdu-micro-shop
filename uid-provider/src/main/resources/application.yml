@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://101.132.112.128:3306/maksduShop?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false
+    username: cxc1123
+    password: cxc1123xi
+    driverClassName: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 9999
