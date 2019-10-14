@@ -1,19 +1,8 @@
 package com.maksdu.good.service;
 
-import javax.annotation.Resource;
 
-import org.springframework.stereotype.Service;
+public interface UidGenService {
 
-import com.baidu.fsg.uid.UidGenerator;
-
-@Service
-public class UidGenService {
-
-	@Resource(name = "cachedUidGenerator")
-    private UidGenerator uidGenerator;
-
-    public long getUid() {
-        return uidGenerator.getUID();
-    }
+	long getUid();
 	
 }
