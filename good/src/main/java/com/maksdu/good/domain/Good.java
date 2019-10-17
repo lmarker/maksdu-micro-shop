@@ -3,9 +3,18 @@ package com.maksdu.good.domain;
 import java.util.Date;
 
 import lombok.Data;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
-public class GoodEntity {
+@Entity
+@Table(name="maksdu_good_message")
+public class GoodMessage {
+
+	private String goodId;
 
 	/**
 	 * 商品主题
@@ -40,11 +49,13 @@ public class GoodEntity {
 	/**
 	 * 商品创建时间
 	 */
+	@CreatedDate
 	private Date createTime;
 	
 	/**
 	 * 商品变更时间
 	 */
+	@UpdateTimestamp
 	private Date updateTime;
 	
 	/**
