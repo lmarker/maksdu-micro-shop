@@ -1,4 +1,4 @@
 package com.maksdu.good.service;
 
-public class GoodService {
+public interface GoodService {
 }

@@ -1,10 +1,14 @@
 package com.maksdu.good.exception;
 
-public class GoodUnsupportException extends RuntimeException {
+public class GoodUnsupportedException extends RuntimeException {
 
-    private String message;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String message;
 
-    public GoodUnsupportException(String message) {
+    public GoodUnsupportedException(String message) {
         super();
         this.message = message;
     }
@@ -12,6 +16,6 @@ public class GoodUnsupportException extends RuntimeException {
     @Override
     public String getMessage() {
         return this.message;
-    }￿
-
+    }
+    
 }

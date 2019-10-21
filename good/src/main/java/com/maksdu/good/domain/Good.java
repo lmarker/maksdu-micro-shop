@@ -2,18 +2,21 @@ package com.maksdu.good.domain;
 
 import java.util.Date;
 
-import lombok.Data;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import lombok.Data;
 
 @Data
 @Entity
 @Table(name="maksdu_good_message")
-public class GoodMessage {
+public class Good {
 
+	@Id
 	private String goodId;
 
 	/**
