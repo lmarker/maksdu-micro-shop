@@ -7,9 +7,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import com.spring4all.swagger.EnableSwagger2Doc;
+
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
+@EnableSwagger2Doc
 public class GoodProviderApplication {
 
 	@Bean
