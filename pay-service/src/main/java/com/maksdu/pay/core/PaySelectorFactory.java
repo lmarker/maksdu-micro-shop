@@ -15,29 +15,29 @@ import com.maksdu.pay.util.ClassUtils;
  */
 public class PaySelectorFactory {
 
-	private final ConcurrentMap<String, PaySelector> selectorMap = new ConcurrentHashMap<>();
+	private static final ConcurrentMap<String, PaySelector> selectorMap = new ConcurrentHashMap<>();
 	//静态表
-	private final Map<String, String> viewTable = new HashMap<>();
+	private static final Map<String, String> viewTable = new HashMap<>();
 
-	PaySelectorFactory() {
-		viewTable.put("0-0", ClassUtils.getDeclaredClassName(NativePaySelector.class));
-	}
-	
-	public void initLoader(String key, Class<?> cls) {
+	public static void initLoader(String key, Class<?> cls) {
 		viewTable.put(key, ClassUtils.getDeclaredClassName(cls));
 	}
 	
-	public void registerSelector(PaySelector paySelector) throws Throwable {
+	public static void registerSelector(PaySelector paySelector) throws Throwable {
 		if(selectorMap.containsKey(paySelector.getUniqueKey())) {
 			throw new Throwable();
 		}
 		selectorMap.putIfAbsent(paySelector.getUniqueKey(), paySelector);
 	}
 	
-	public PaySelector getSelector(PayAccount payAccount) {
+	public static PaySelector getSelector(PayAccount payAccount) {
 		int payMethod = payAccount.getPayMethod();
 		int payUnit = payAccount.getPayUnit();
 		String key = String.valueOf(payMethod)+"-"+String.valueOf(payUnit);
 		return selectorMap.getOrDefault(viewTable.getOrDefault(key, ""), null);
+	}
+	
+	public static Map<String, String> getMap() {
+		return viewTable;
 	}
 }
