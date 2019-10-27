@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maksdu.pay.mapper.PayMapper">
+ 
+    <resultMap id="BaseResultMap" type="com.maksdu.pay.domain.PayAccount">
+        <result column="payId" jdbcType="INTEGER" property="payid"/>
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="item" jdbcType="VARCHAR" property="item" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+      	<result column="amount" jdbcType="DECIMAL" property="amount"/> 
+        <result column="payMethodDetail" jdbcType="VARCHAR" property="payMethodDetail" />
+        <result column="sourceAccountId" jdbcType="VARCHAR" property="sourceAccountId"/>
+        <result column="targetAccountId" jdbcType="VARCHAR" property="targetAccountId"/>
+        <result column="payMethod" jdbcType="INTEGER" property="payMethod"/>
+        <result column="payUnit" jdbcType="INTEGER" property="payUnit"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+ 
+    <select id="Sel" resultType="com.maksdu.pay.domain.PayAccount">
+        select * from pay_account where id = #{id}
+    </select>
+    
+    <insert id="postPayment" >
+    	INSERT INTO pay_account(id, item, description, amount, payMethodDetail, payMethod, payUnit,sourceAccountId,targetAccountId, status) values 
+    	(#{id},#{item},#{description},
+    	#{amount},#{payMethodDetail}, 
+    	#{payMethod}, #{payUnit},
+    	#{sourceAccountId},#{targetAccountId},0)
+    </insert>
+ 
+ 
+</mapper>

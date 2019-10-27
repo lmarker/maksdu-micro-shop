@@ -1,4 +1,4 @@
-package com.maksdu.pay.domain;
+package com.maksdu.pay.util;
 
 /**
  * 支付方式

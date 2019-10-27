@@ -1,0 +1,10 @@
+eureka: 
+  instance: 
+    hostname: user-service #服务注册中心IP地址
+  client: 
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl: 
+      #注册地址为集群.
+      #defaultZone: http://node1:1111/eureka/,http://node3:3333/eureka/,http://node2:2222/eureka/
+      defaultZone: http://localhost:10000/eureka/

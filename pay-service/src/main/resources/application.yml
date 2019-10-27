@@ -1,26 +1,22 @@
 spring:
   application:
-    name: uid-provider
-  datasource:
+    name: pay-service
+  datasource: 
     url: jdbc:mysql://101.132.112.128:3306/maksduShop?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false
     username: cxc1123
     password: cxc1123xi
     driverClassName: com.mysql.jdbc.Driver
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  configuration:
-    map-underscore-to-camel-case: true
     
-server:
-  port: 9999
-  
+mybatis: 
+  mapper-locations: classpath:mapping/*Mapper.xml
+   
 eureka: 
   instance: 
-    hostname: uid-provider #服务注册中心IP地址
+    hostname: pay-service #服务注册中心IP地址
   client: 
     fetch-registry: true
     register-with-eureka: true
     serviceUrl: 
       #注册地址为集群.
       #defaultZone: http://node1:1111/eureka/,http://node3:3333/eureka/,http://node2:2222/eureka/
-      defaultZone: http://47.105.104.105:10000/eureka
+      defaultZone: http://47.105.104.105:10000/eureka/

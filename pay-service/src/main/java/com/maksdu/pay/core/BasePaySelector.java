@@ -1,7 +1,7 @@
 package com.maksdu.pay.core;
 
-import com.maksdu.pay.domain.PayUnit;
 import com.maksdu.pay.util.ClassUtils;
+import com.maksdu.pay.util.PayUnit;
 
 public abstract class BasePaySelector implements PaySelector {
 
@@ -10,7 +10,8 @@ public abstract class BasePaySelector implements PaySelector {
 	public void setPayUnit(int payUnit) {
 		this.payUnit = payUnit;
 	}
-	
+
+
 	@Override
 	public String getUniqueKey() {
 		return getClassDeclareName();

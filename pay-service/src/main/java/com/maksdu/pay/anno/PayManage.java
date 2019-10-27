@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 import com.maksdu.pay.condition.OnProcessMethodCondition;
+import com.maksdu.pay.util.PayMethod;
+import com.maksdu.pay.util.PayUnit;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE,ElementType.METHOD})
@@ -18,9 +20,9 @@ import com.maksdu.pay.condition.OnProcessMethodCondition;
 @Component
 public @interface PayManage {
 
-	String method() default "0";
+	int[] method() default {PayMethod.NATIVE};
 	
-	String unit() default "0";
+	int[] unit() default {PayUnit.UNIT_ONE};
 	
 	Class<?> cls();
 }

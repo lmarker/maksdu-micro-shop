@@ -70,6 +70,7 @@
 		<module>zuul-service</module>
 		<module>pay-service</module>
 		<module>accounts-service</module>
+		<module>util</module>
 	</modules>
 	<repositories>
 		<repository>
