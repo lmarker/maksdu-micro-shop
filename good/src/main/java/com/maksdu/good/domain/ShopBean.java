@@ -1,19 +1,12 @@
 package com.maksdu.good.domain;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -24,10 +17,10 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
-@Table(name="maksdu_good_message")
+@Table(name="shop_message")
 @EqualsAndHashCode(callSuper=true)
 @ApiModel(parent=DomainBase.class)
-public class Good extends DomainBase {
+public class ShopBean extends DomainBase {
 
 	/**
 	 * 商品主题
@@ -73,7 +66,7 @@ public class Good extends DomainBase {
 	 * 商品价格
 	 */
 	@ApiModelProperty(name="price", value="商品价格")
-	private Double price;
+	private BigDecimal price;
 	
 	@ApiModelProperty(name="status", value="商品状态")
 	private Integer status; 

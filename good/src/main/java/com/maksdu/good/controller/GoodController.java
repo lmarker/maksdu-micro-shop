@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.maksdu.good.domain.Good;
+import com.maksdu.good.domain.ShopBean;
 import com.maksdu.good.service.GoodDataSourceService;
 
 import io.swagger.annotations.Api;
@@ -28,32 +28,32 @@ public class GoodController {
 	
 	@GetMapping(value="init")
 	@ApiOperation(value="init", notes="init object for good moudle")
-	public Good initNewGood() {
-		return new Good();
+	public ShopBean initNewGood() {
+		return new ShopBean();
 	}
 	
 	@PostMapping(value="createSingle")
-	public Good createNewGood(@RequestBody Good good) {
+	public ShopBean createNewGood(@RequestBody ShopBean good) {
 		return goodDataSourceService.save(good);
 	}
 	
 	@PostMapping(value="createBatch")
-	public List<Good> createBatchNewGood(@RequestBody List<Good> goods) {
+	public List<ShopBean> createBatchNewGood(@RequestBody List<ShopBean> goods) {
 		return goodDataSourceService.saveAll(goods);
 	}
 	
 	@PostMapping(value="update")
-	public Good updateOldGood(Good good) {
+	public ShopBean updateOldGood(ShopBean good) {
 		return goodDataSourceService.update(good);
 	}
 	
 	@PostMapping(value="delete")
-	public Good deleteGood(Good good) {
+	public ShopBean deleteGood(ShopBean good) {
 		return goodDataSourceService.delete(good);
 	}
 	
 	@GetMapping(value="/{id}")
-	public Good getGood(@PathVariable String id) {
+	public ShopBean getGood(@PathVariable String id) {
 		return goodDataSourceService.getOne(id);
 	}
 	

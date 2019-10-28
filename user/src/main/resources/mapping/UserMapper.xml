@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maksdu.user.mapper.UserManagerMapper">
+ 
+    <resultMap id="BaseResultMap" type="com.maksdu.user.domain.User">
+        <result column="identity" jdbcType="VARCHAR" property="Identity"/>
+        <result column="nickName" jdbcType="VARCHAR" property="nickName" />
+        <result column="avator" jdbcType="VARCHAR" property="avator" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="metaJson" jdbcType="VARCHAR" property="metaJson" />
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+    </resultMap>
+ 
+    <select id="Sel" resultType="com.maksdu.user.domain.User">
+        select * from pay_account where id = #{id}
+    </select>
+    
+    <insert id="postPayment" >
+    	INSERT INTO pay_account(id, item, description, amount, payMethodDetail, payMethod, payUnit,sourceAccountId,targetAccountId, status) values 
+    	(#{id},#{item},#{description},
+    	#{amount},#{payMethodDetail}, 
+    	#{payMethod}, #{payUnit},
+    	#{sourceAccountId},#{targetAccountId},0)
+    </insert>
+ 
+ 
+</mapper>
