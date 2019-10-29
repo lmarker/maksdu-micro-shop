@@ -2,7 +2,11 @@ package com.maksdu.user.mapper;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
-public class UserLoginMapper {
+import com.maksdu.user.domain.UserLogin;
 
+@Repository
+public interface UserLoginMapper {
+
+	UserLogin loginCheck(String identity, String token);
+	
 }

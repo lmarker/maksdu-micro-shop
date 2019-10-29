@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maksdu.user.mapper.UserLoginMapper">
+ 
+    <resultMap id="BaseResultMap" type="com.maksdu.user.domain.UserLogin">
+        <result column="identity" jdbcType="VARCHAR" property="identity"/>
+        <result column="loginMethod" jdbcType="VARCHAR" property="loginMethod" />
+        <result column="loginToken" jdbcType="VARCHAR" property="loginToken" />
+    </resultMap>
+ 
+    <select id="findBytoken" resultType="com.maksdu.user.domain.UserLogin">
+        select * from user_login_mc where loginToken = #{token}
+    </select>
+    
+    <insert id="createUserLogin" >
+    	INSERT INTO user_login_mc(identity, loginMethod, loginToken) values 
+    	(#{identity},#{loginMethod},#{loginToken})
+    </insert>
+ 
+ 
+</mapper>

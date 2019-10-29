@@ -1,6 +1,7 @@
 package com.maksdu.user.login;
 
 import com.maksdu.user.domain.User;
+import com.maksdu.user.domain.UserLogin;
 
 /**
  * 登录接口对象
@@ -31,7 +32,7 @@ public interface Subject {
 	 * @param user
 	 * @return
 	 */
-	Subject loader(User user);
+	Subject loader(UserLogin user);
 	
 	/**
 	 * 设置过期时间
@@ -39,7 +40,7 @@ public interface Subject {
 	 * @param timeUnit
 	 * @return
 	 */
-	Subject loader(User user, long timeUnit);
+	Subject loader(UserLogin user, long timeUnit);
 	
 	/**
 	 * 改变用户状态
@@ -58,7 +59,7 @@ public interface Subject {
 	 * 返回登陆密钥
 	 * @return
 	 */
-	String getSubjectToken(String proxyParam);
+	String getSubjectToken();
 	
 	/**
 	 * 返回登陆实体

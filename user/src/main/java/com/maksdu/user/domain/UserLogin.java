@@ -11,4 +11,9 @@ public class UserLogin {
 	
 	private String loginToken;
 	
+	/**
+	 * 用户实体
+	 */
+	private User userEntity;
+	
 }

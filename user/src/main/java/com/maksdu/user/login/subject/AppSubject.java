@@ -1,6 +1,9 @@
-package com.maksdu.user.login;
+package com.maksdu.user.login.subject;
 
 import com.maksdu.user.domain.User;
+import com.maksdu.user.domain.UserLogin;
+import com.maksdu.user.login.Subject;
+import com.maksdu.user.login.TokenProvider;
 
 import lombok.Setter;
 
@@ -16,7 +19,7 @@ public class AppSubject implements Subject {
 	/**
 	 * 增强对象
 	 */
-	private User user;
+	private UserLogin user;
 	
 	@Override
 	public int getSubjectStatus() {
@@ -24,11 +27,8 @@ public class AppSubject implements Subject {
 	}
 
 	@Override
-	public Subject loader(User user) {
-		this.user = user;
-		this.startTime = System.currentTimeMillis();
-		this.timeOut = Integer.MAX_VALUE;
-		return this;
+	public Subject loader(UserLogin user) {
+		return loader(user, Integer.MAX_VALUE);
 	}
 
 	@Override
@@ -49,16 +49,17 @@ public class AppSubject implements Subject {
 	}
 
 	@Override
-	public Subject loader(User user, long timeUnit) {
+	public Subject loader(UserLogin user, long timeUnit) {
 		this.user = user;
 		this.startTime = System.currentTimeMillis();
 		this.timeOut = timeUnit;
+		this.user.setLoginToken(getSubjectToken());
 		return this;
 	}
 
 	@Override
-	public String getSubjectToken(String proxyParam) {
-		return provider.tokenBuilder(proxyParam);
+	public String getSubjectToken() {
+		return provider.tokenBuilder();
 	}
 
 	@Override
@@ -66,7 +67,7 @@ public class AppSubject implements Subject {
 		if(this.status > ERROR_DIVID) {
 			return null;
 		}
-		return this.user;
+		return this.user.getUserEntity();
 	}
 	
 }
