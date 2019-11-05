@@ -10,7 +10,7 @@ public class GenGeneratorId implements IdentifierGenerator {
 
 	@Override
 	public Serializable generate(SharedSessionContractImplementor arg0, Object arg1) throws HibernateException {
-		return APIHttpUtil.API("http://localhost:9999/testuid", null);
+		return APIHttpUtil.API("http://47.105.104.105:10002/testuid", null);
 	}
 
 }

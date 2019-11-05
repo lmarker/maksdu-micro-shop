@@ -1,7 +1,5 @@
 package com.maksdu.good.service.impl;
 
-import java.lang.ref.SoftReference;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;

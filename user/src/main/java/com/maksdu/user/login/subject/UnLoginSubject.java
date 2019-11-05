@@ -1,9 +1,10 @@
 package com.maksdu.user.login.subject;
 
 import com.maksdu.user.domain.User;
+import com.maksdu.user.domain.UserLogin;
 import com.maksdu.user.login.Subject;
 
-public class UnLoginSubject extends AppSubject {
+public final class UnLoginSubject extends AppSubject {
 
 	@Override
 	public int getSubjectStatus() {
@@ -11,12 +12,12 @@ public class UnLoginSubject extends AppSubject {
 	}
 
 	@Override
-	public Subject loader(User user) {
+	public Subject loader(UserLogin user) {
 		return null;
 	}
 
 	@Override
-	public Subject loader(User user, long timeUnit) {
+	public Subject loader(UserLogin user, long timeUnit) {
 		return null;
 	}
 
@@ -31,7 +32,7 @@ public class UnLoginSubject extends AppSubject {
 	}
 
 	@Override
-	public String getSubjectToken(String proxyParam) {
+	public String getSubjectToken() {
 		return null;
 	}
 

@@ -12,7 +12,7 @@ mybatis:
     map-underscore-to-camel-case: true
     
 server:
-  port: 9999
+  port: 1002
   
 eureka: 
   instance: 
